@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import listadoAlumnos from './data/alumnos.json'
 import Alumno from './components/Alumno'
+import { Button } from 'antd'
 
 function App() {
   const [isFiltered, setIsFiltered] = useState(false)
@@ -34,9 +35,12 @@ function App() {
       ) : (
         <>
           <div>
-            <button onClick={() => onFilterClick()}>
+            {/* <button onClick={() => onFilterClick()}>
+              
+            </button> */}
+            <Button type="primary" onClick={() => onFilterClick()}>
               {isFiltered ? 'Quitar filtro' : 'Filtrar'} legajo mayor 150.000
-            </button>
+            </Button>
           </div>
           <ul>
             {alumnos.map((a) => (
