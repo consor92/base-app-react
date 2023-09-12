@@ -1,11 +1,10 @@
-import axios from 'axios'
 import { useEffect } from 'react'
-// import swService from '../../services/swapi'
+import swService from '../../services/swapi'
 
 function Home() {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await axios.get('https://swapi.dev/api/people')
+      const response = await swService.getPeopleById(1)
       console.log(response)
     }
     fetchData()
