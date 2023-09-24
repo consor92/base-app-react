@@ -4,7 +4,7 @@ import swService from '../../services/swapi'
 function Home() {
   useEffect(() => {
     const fetchData = async () => {
-      const response = await swService.getPeopleById(1)
+      const response = await swService.getPersonById(1)
       console.log(response)
     }
     fetchData()
