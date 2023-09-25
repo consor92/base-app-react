@@ -4,7 +4,8 @@ import './styles.css'
 export default function Layout() {
   const menuItems = [
     { href: '/', title: 'Home' },
-    { href: 'students', title: 'Students' },
+    { href: '/students', title: 'Students' },
+    { href: '/sw-characters', title: 'Star Wars Characters' },
   ]
 
   return (
