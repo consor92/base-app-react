@@ -5,6 +5,8 @@ import Layout from './modules/Layout'
 import NotFound from './modules/NotFound'
 import SWCharacters from './modules/SWCharacters'
 import CharacterDetail from './modules/CharacterDetail'
+import Contact from './modules/Contact'
+import About from './modules/About'
 
 function App() {
   return (
@@ -18,6 +20,10 @@ function App() {
               <Route index element={<SWCharacters />} />
               <Route path=":id" element={<CharacterDetail />} />
             </Route>
+            <Route path="contact" element={<Contact />}>
+              <Route path=":type" element={<Contact />} />
+            </Route>
+            <Route path="about" element={<About />} />
             <Route path="*" element={<NotFound />} />
           </Route>
         </Routes>
