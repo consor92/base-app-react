@@ -1,31 +1,108 @@
-import { NavLink, Outlet } from 'react-router-dom'
-import './styles.css'
+import { useState } from 'react'
+import { Outlet } from 'react-router-dom'
+import { Link } from 'react-router-dom'
+import {
+  QuestionCircleOutlined,
+  PhoneOutlined,
+  HomeOutlined,
+  TeamOutlined,
+  MailOutlined,
+} from '@ant-design/icons'
+import { Layout, Menu, theme } from 'antd'
 
-export default function Layout() {
-  const menuItems = [
-    { href: '/', title: 'Home' },
-    { href: '/students', title: 'Students' },
-    { href: '/sw-characters', title: 'Star Wars Characters' },
-  ]
+const { Header, Content, Footer, Sider } = Layout
 
+function getItem(label, key, icon, children) {
+  return {
+    key,
+    icon,
+    children,
+    label,
+  }
+}
+
+const items = [
+  getItem(<Link to="/"> Home </Link>, '1', <HomeOutlined />),
+  getItem(<Link to="/students"> Alumnos </Link>, '2', <HomeOutlined />),
+  getItem(
+    <Link to="/sw-characters"> Personajes SW </Link>,
+    '3',
+    <HomeOutlined />
+  ),
+  getItem(<Link to="/contact"> Contacto </Link>, '4', <TeamOutlined />, [
+    getItem(
+      <Link to="/contact/phone"> Telefono </Link>,
+      '5',
+      <PhoneOutlined />
+    ),
+    getItem(<Link to="/contact/mail"> Mail </Link>, '6', <MailOutlined />),
+  ]),
+  getItem(<Link to="/about"> About </Link>, '7', <QuestionCircleOutlined />),
+]
+
+const App = () => {
+  const [collapsed, setCollapsed] = useState(false)
+  const {
+    token: { colorBgContainer },
+  } = theme.useToken()
   return (
-    <div>
-      <main>
-        <nav>
-          <ul>
-            {menuItems.map(({ href, title }) => (
-              <li key={title}>
-                <NavLink to={href}>
-                  <p>{title}</p>
-                </NavLink>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <div>
-          <Outlet />
-        </div>
-      </main>
-    </div>
+    <Layout
+      style={{
+        minHeight: '100vh',
+      }}
+    >
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        onCollapse={(value) => setCollapsed(value)}
+      >
+        <div className="demo-logo-vertical" />
+        <Menu
+          theme="dark"
+          defaultSelectedKeys={['1']}
+          mode="inline"
+          items={items}
+        ></Menu>
+      </Sider>
+      <Layout style={{ width: '100%' }}>
+        <Header
+          style={{
+            padding: 0,
+            background: colorBgContainer,
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+          }}
+        >
+          <h1>Header</h1>
+        </Header>
+        <Content
+          style={{
+            margin: '20px 16px',
+          }}
+        >
+          <div
+            style={{
+              height: '100%',
+              background: colorBgContainer,
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+              flexDirection: 'column',
+            }}
+          >
+            <Outlet />
+          </div>
+        </Content>
+        <Footer
+          style={{
+            textAlign: 'center',
+          }}
+        >
+          Ant Design ©2023 Created by Ant UED
+        </Footer>
+      </Layout>
+    </Layout>
   )
 }
+export default App
