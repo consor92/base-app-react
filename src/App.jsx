@@ -1,52 +1,34 @@
-import { useState, useEffect } from 'react'
-import listadoAlumnos from './data/alumnos.json'
-import Alumno from './components/Alumno'
+import { Routes, Route, BrowserRouter } from 'react-router-dom'
+import Home from './modules/Home'
+import Students from './modules/Students'
+import Layout from './modules/Layout'
+import NotFound from './modules/NotFound'
+import SWCharacters from './modules/SWCharacters'
+import CharacterDetail from './modules/CharacterDetail'
+import Contact from './modules/Contact'
+import About from './modules/About'
 
 function App() {
-  const [isFiltered, setIsFiltered] = useState(false)
-  const [alumnos, setAlumnos] = useState([])
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      console.log('Ejecutado despues de 5 segundos')
-      setAlumnos(listadoAlumnos)
-    }, 5000)
-    return () => clearTimeout(timer)
-  }, [])
-
-  const onFilterClick = () => {
-    if (!isFiltered) {
-      setAlumnos(listadoAlumnos.filter((a) => a.legajo > 150000))
-    } else {
-      setAlumnos(listadoAlumnos)
-    }
-    setIsFiltered((isFiltered) => !isFiltered)
-  }
-
-  // TODO: agregar un input  para  buscar un alumno y marcarlo en la lista
-
   return (
-    <>
-      <h1>Hola clase de Programación III</h1>
-      <h2>A continuación mostraremos el listado de alumnos de la clase</h2>
-      {alumnos.length == 0 ? (
-        <p>Cargando...</p>
-      ) : (
-        <>
-          <div>
-            <button onClick={() => onFilterClick()}>
-              {isFiltered ? 'Quitar filtro' : 'Filtrar'} legajo mayor 150.000
-            </button>
-          </div>
-          <ul>
-            {alumnos.map((a) => (
-              <Alumno {...a} />
-            ))}
-          </ul>
-          <p>Cantidad total de alumnos: {alumnos.length}</p>
-        </>
-      )}
-    </>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          <Route element={<Layout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="students" element={<Students />} />
+            <Route path="sw-characters">
+              <Route index element={<SWCharacters />} />
+              <Route path=":id" element={<CharacterDetail />} />
+            </Route>
+            <Route path="contact" element={<Contact />}>
+              <Route path=":type" element={<Contact />} />
+            </Route>
+            <Route path="about" element={<About />} />
+            <Route path="*" element={<NotFound />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </div>
   )
 }
 
