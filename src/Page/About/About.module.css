@@ -1,0 +1,32 @@
+.about-page {
+  padding: 20px;
+  color: inherit; /* usa el color definido globalmente */
+  background-color: transparent;
+
+  text-align: center;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+/* Detecta tema claro con media query */
+@media (prefers-color-scheme: light) {
+  .about-page {
+    background-color: #f0f0f0;
+  }
+}
+
+/* Detecta tema oscuro con media query */
+@media (prefers-color-scheme: dark) {
+  .about-page {
+    background-color: #333;
+  }
+}
+
+/* Si usás clases en body para controlar el tema, podés complementar: */
+body.light .about-page {
+  background-color: #f0f0f0;
+}
+
+body.dark .about-page {
+  background-color: #333;
+}

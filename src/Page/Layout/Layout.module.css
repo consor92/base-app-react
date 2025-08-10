@@ -1,0 +1,58 @@
+/* Contenedor general layout */
+.appLayout {
+  /* Podés agregar padding, margen o background general aquí */
+}
+
+/* Estilo para sider (menú lateral) */
+.sider {
+  /* Si querés podés controlar colores aquí, aunque lo maneja Ant Design */
+}
+
+/* Estilo para el logo o espacio arriba en el sider */
+.logo {
+  height: 32px;
+  margin: 16px;
+  background: transparent !important; /* nada de fondo */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* Título del menú lateral */
+.menuTitle {
+  color: #fff; /* Podés cambiar el color */
+  text-align: center; /* Centrado */
+  margin-bottom: 16px; /* Espacio abajo */
+}
+
+/* Header centrado */
+.header {
+  /* Podés ajustar tipografía o colores */
+}
+
+/* Contenido principal */
+.content {
+  /* Podés agregar padding, fondo o responsive */
+}
+
+/* Footer */
+.footer {
+  /* Tipografía o fondo */
+}
+
+/* Si querés que el nav que mencionaste tenga estilos en módulo, por ej: */
+
+nav {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 10px;
+  padding-right: 10px;
+  list-style: none;
+  min-width: 400px;
+}
+

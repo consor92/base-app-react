@@ -1,14 +1,14 @@
-import React, { useContext } from 'react'
+import { useContext } from 'react'
 
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
-import Home from './modules/Home'
-import Students from './modules/Students'
-import Layout from './modules/Layout'
-import NotFound from './modules/NotFound'
-import SWCharacters from './modules/SWCharacters'
-import CharacterDetail from './modules/CharacterDetail'
-import Contact from './modules/Contact'
-import About from './modules/About'
+import Home from './Page/Home'
+import Students from './Page/Students'
+import Layout from './Page/Layout'
+import NotFound from './Page/NotFound'
+import SWCharacters from './Page/SWCharacters'
+import CharacterDetail from './Page/CharacterDetail'
+import Contact from './Page/Contact'
+import About from './Page/About'
 
 import { ThemeContext } from './context/ThemeContext.jsx'  // importamos el contexto
 
@@ -79,11 +79,6 @@ function App() {
                 y muestra la página de "Not Found" (error 404) */}
             <Route path="*" element={<NotFound />} />
 
-            {/* 💡 EJEMPLO EXTRA: Query strings
-                Aunque no se declaran aquí, podemos entrar a:
-                /students?order=desc&limit=5
-                Y en Students.jsx usar useSearchParams() para leer 'order' y 'limit'.
-                Esto permite filtrar/ordenar resultados desde la URL. */}
           </Route>
 
         </Routes>

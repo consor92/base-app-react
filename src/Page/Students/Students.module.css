@@ -1,0 +1,33 @@
+.students {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light {
+  background-color: #fafafa;
+  color: #222;
+}
+
+.dark {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+.actions {
+  margin-bottom: 15px;
+}
+
+.list {
+  list-style: none;
+  padding-left: 0;
+}
+.student {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+}

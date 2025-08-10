@@ -1,0 +1,26 @@
+.home {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.light {
+  background-color: #f0f0f0;
+  color: #222;
+}
+
+.dark {
+  background-color: #222;
+  color: #eee;
+}
+
+.error {
+  color: red;
+  font-weight: bold;
+}
+.home h1 {
+  font-size: 2em;
+  margin-bottom: 20px;
+}

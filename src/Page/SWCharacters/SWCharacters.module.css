@@ -1,0 +1,24 @@
+.container {
+  padding: 20px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Tema claro */
+.light {
+  background-color: #f9f9f9;
+  color: #222;
+}
+
+/* Tema oscuro */
+.dark {
+  background-color: #121212;
+  color: #ddd;
+}
+/* Estilos para el encabezado */
+.header {
+  background-color: #007bff;
+  color: white;
+  padding: 10px;
+  text-align: center;
+}

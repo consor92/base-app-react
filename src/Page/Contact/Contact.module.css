@@ -1,0 +1,26 @@
+/* Estilo base para el contenedor principal */
+.contact {
+  padding: 20px;
+  max-width: 800px;  /* Para limitar ancho y mejorar legibilidad */
+  margin: 0 auto;    /* Centrar horizontalmente */
+  border-radius: 8px;
+  /* Transiciones para que los cambios de tema sean suaves */
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tema claro */
+.light {
+  background-color: #f9f9f9; /* Fondo claro */
+  color: #222;              /* Texto oscuro */
+}
+
+/* Tema oscuro */
+.dark {
+  background-color: #222; /* Fondo oscuro */
+  color: #eee;            /* Texto claro */
+}
+/* Estilo para los encabezados */
+.contact h1, .contact h2 {          
+  margin-bottom: 20px; /* Espacio debajo de los encabezados */
+  font-weight: bold;   /* Negrita para destacar */
+}   
