@@ -53,7 +53,7 @@ function Home() {
       <p>Para más detalles, visita las páginas de estudiantes o personajes de Star Wars.</p>
 
       {/* Mostrar info de la API si está disponible */}
-      <h2>Información de la API</h2>
+      <h2>Información de la API (Local API-Rest Express) </h2>
 
       {/* Mostrar spinner mientras carga */}
       {isLoading && <p>Cargando información...</p>}
