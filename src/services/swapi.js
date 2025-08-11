@@ -2,7 +2,7 @@ import axios from 'axios'
 
 // Crear instancia de axios con configuración base para la API pública de Star Wars
 const api = axios.create({
-  baseURL: 'https://swapi.dev/api',
+  baseURL: 'https://pokeapi.co/api/v2/', // URL base de la API pública de Star Wars
   timeout: 1000 * 15, // Timeout de 15 segundos
 })
 
@@ -38,10 +38,11 @@ api.interceptors.response.use(
 
 // Objeto que agrupa funciones para llamar a endpoints de la API de Star Wars
 // Definimos los servicios/endpoints para consumir la API
-const swService = {
-  getRoot: () => api.get('/'), // Raíz de la API
-  getPeople: () => api.get('/people'), // Listado de personajes
-  getPersonById: (id) => api.get(`/people/${id}`), // Personaje por id
+const pokeService = {
+  getRoot: () => api.get('/'), // info general
+  getPokemonList: () => api.get('/pokemon'), // lista de Pokémon
+  getPokemonById: (id) => api.get(`/pokemon/${id}`), // Pokémon por id o nombre
 }
 
-export default swService
+
+export default pokeService
